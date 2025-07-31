@@ -25,7 +25,7 @@ public class Address extends BaseEntity {
 
     private String city;
 
-    private String country;
+    private String county;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -37,11 +37,11 @@ public class Address extends BaseEntity {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Address address = (Address) o;
-        return Objects.equals(street, address.street) && Objects.equals(houseNumber, address.houseNumber) && Objects.equals(zipCode, address.zipCode) && Objects.equals(city, address.city) && Objects.equals(country, address.country);
+        return Objects.equals(street, address.street) && Objects.equals(houseNumber, address.houseNumber) && Objects.equals(zipCode, address.zipCode) && Objects.equals(city, address.city) && Objects.equals(county, address.county);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), street, houseNumber, zipCode, city, country);
+        return Objects.hash(super.hashCode(), street, houseNumber, zipCode, city, county);
     }
 }
