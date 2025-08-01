@@ -1,6 +1,7 @@
 package dev.skonan.bank.services.impl;
 
 import dev.skonan.bank.dtos.AccountDto;
+import dev.skonan.bank.dtos.LightUserDto;
 import dev.skonan.bank.dtos.UserDto;
 import dev.skonan.bank.models.Account;
 import dev.skonan.bank.models.User;
@@ -87,5 +88,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
 
         return user.getId();
+    }
+
+    @Override
+    public Integer update(LightUserDto userDto) {
+        User user = LightUserDto.toEntity(userDto);
+        return userRepository.save(user).getId();
     }
 }
